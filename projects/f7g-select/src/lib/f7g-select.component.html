@@ -1,0 +1,17 @@
+<mat-form-field appearance="fill">
+  <mat-label>{{ label }}</mat-label>
+  <mat-select [multiple]="multiple" (selectionChange)="emitValue($event)">
+    <div class="search-bar">
+      <input
+        class="search-input"
+        (keyup)="onKey($event.target)"
+        *ngIf="searcheable"
+        (keydown)="$event.stopPropagation()"
+        placeholder="{{ placeholder }}"
+      />
+    </div>
+    <mat-option *ngFor="let item of selectedData" [value]="item.id">
+      {{ item.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
