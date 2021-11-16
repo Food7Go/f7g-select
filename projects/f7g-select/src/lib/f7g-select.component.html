@@ -1,6 +1,10 @@
 <mat-form-field appearance="fill">
   <mat-label>{{ label }}</mat-label>
-  <mat-select [multiple]="multiple" (selectionChange)="emitValue($event)">
+  <mat-select
+    [multiple]="multiple"
+    (selectionChange)="emitValue($event)"
+    [(value)]="selectedOption"
+  >
     <div class="search-bar">
       <input
         class="search-input"
@@ -10,8 +14,10 @@
         placeholder="{{ placeholder }}"
       />
     </div>
-    <mat-option *ngFor="let item of selectedData" [value]="item.id">
-      {{ item.name }}
-    </mat-option>
+    <div class="options">
+      <mat-option *ngFor="let item of selectedData" [value]="item.id">
+        {{ item.name }}
+      </mat-option>
+    </div>
   </mat-select>
 </mat-form-field>

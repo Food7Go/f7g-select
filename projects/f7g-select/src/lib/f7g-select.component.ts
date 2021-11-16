@@ -11,6 +11,7 @@ export class F7gSelectComponent implements OnInit {
   @Input() searcheable: boolean = false;
   @Input() label: string = '';
   @Input() placeholder: string = '';
+  @Input() selectedOption: string = '';
 
   @Output() output = new EventEmitter<any>();
 
@@ -30,7 +31,7 @@ export class F7gSelectComponent implements OnInit {
   search(value: string) {
     let filter = value.toLowerCase();
     return this.data.filter((option: any) =>
-      option.name.toLowerCase().startsWith(filter)
+      option.name.toLowerCase().includes(filter)
     );
   }
 
