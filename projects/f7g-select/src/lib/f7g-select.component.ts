@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'f7g-select',
@@ -12,8 +13,13 @@ export class F7gSelectComponent implements OnInit {
   @Input() label: string = '';
   @Input() placeholder: string = '';
   @Input() selectedOption: string = '';
+  @Input() required: boolean = false;
 
   @Output() output = new EventEmitter<any>();
+
+  select = this.required
+    ? new FormControl(null, [Validators.required])
+    : new FormControl(null);
 
   selectedData: any;
   constructor() {}
