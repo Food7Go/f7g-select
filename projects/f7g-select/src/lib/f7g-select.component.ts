@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +14,7 @@ import { FormControl, Validators } from '@angular/forms';
   templateUrl: './f7g-select.component.html',
   styleUrls: ['./f7g-select.component.css'],
 })
-export class F7gSelectComponent implements OnInit {
+export class F7gSelectComponent implements OnInit, OnChanges {
   @Input() data: any = [];
   @Input() multiple: boolean = false;
   @Input() searcheable: boolean = false;
@@ -26,6 +34,12 @@ export class F7gSelectComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedData = this.data.sort(
+      (a: any, b: any) => (a.name > b.name && 1) || -1
+    );
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.selectedData = changes.data.currentValue.sort(
       (a: any, b: any) => (a.name > b.name && 1) || -1
     );
   }
