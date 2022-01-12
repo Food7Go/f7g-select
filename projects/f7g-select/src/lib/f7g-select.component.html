@@ -4,7 +4,7 @@
     [formControl]="select"
     [multiple]="multiple"
     (selectionChange)="emitValue($event)"
-    [(value)]="selectedOption"
+    [(ngModel)]="selectedOption"
     [required]="required"
   >
     <div class="search-bar">
