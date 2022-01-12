@@ -39,7 +39,7 @@ export class F7gSelectComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.data) {
+    if (changes.data.firstChange === false) {
       this.selectedData = changes.data.currentValue.sort(
         (a: any, b: any) => (a.name > b.name && 1) || -1
       );
