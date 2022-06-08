@@ -1,12 +1,12 @@
 {
   "name": "f7g-select",
-  "version": "0.0.4",
+  "version": "0.0.9",
   "peerDependencies": {
-    "@angular/common": "^12.2.13",
-    "@angular/core": "^12.2.13",
-    "@angular/material": "^12.2.13"
+    "@angular/common": "~13.3.11",
+    "@angular/core": "~13.3.11"
   },
   "dependencies": {
+    "@angular/material": "^12.2.13",
     "tslib": "^2.0.0"
   }
 }
