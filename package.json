@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "publish-select": "ng build --configuration production && cd dist/f7g-select && npm publish --access=public"
   },
   "private": true,
   "dependencies": {
